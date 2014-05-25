@@ -6,7 +6,7 @@
         id        = "com.rushis.15Puzle"
         version   = "1.0.0">
 
-    <name>15Puzzle Game</name>
+    <name>PuzzleGame15</name>
 
     <description>
         15Puzzle Game.

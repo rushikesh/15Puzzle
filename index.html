@@ -41,6 +41,10 @@
    				checkForGameCompletion();
 			});
 
+			$(document).on('click','#refresh',function(){
+				buildAll();
+			});
+
 			$( "#gameOver" ).on( "popupafterclose", function( event, ui ) {
 				buildAll();
 			});
@@ -97,6 +101,7 @@
 		}
 
 		function buildAll(){
+			var gridArray = [], isSolvable = false, numMoves=0;
 			var moves = window.localStorage.getItem("movesRecord");
 			if(moves!=null){
 				$('#minMoves').html(moves);
@@ -114,7 +119,7 @@
 				if(arr[i]==16){
 					$('#'+i).html("").addClass("emptyBlock");
 				}else{
-					$('#'+i).html(arr[i]);
+					$('#'+i).html(arr[i]).removeClass("emptyBlock");
 				}
 				
 			}
@@ -168,6 +173,7 @@
 		<div data-role="header" data-position="inline">
 			<h1>15 Puzzle</h1>
 			<a href="#popupBasic" data-position-to="window" data-transition="fade" data-rel="popup" id="infoicon" data-icon="info" class="ui-btn-right" data-iconpos="notext">Info</a>
+			<a href="#" id="refresh" data-icon="refresh" class="ui-btn-left" data-iconpos="notext">Refresh</a>	
 		</div>
 		<div data-role="content" data-theme="a" id="content">
 			<span class="left">Record:<span id="minMoves"></span></span><span class="right">Moves:<span id="cMoves"></span></span><br />

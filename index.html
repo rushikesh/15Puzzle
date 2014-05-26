@@ -101,11 +101,14 @@
 		}
 
 		function buildAll(){
-			var gridArray = [], isSolvable = false, numMoves=0;
+			gridArray = [];
+			isSolvable = false;
+			numMoves=0;
 			var moves = window.localStorage.getItem("movesRecord");
 			if(moves!=null){
 				$('#minMoves').html(moves);
 			}
+			$('#cMoves').html(numMoves);
 			while(!isSolvable){
 				gridArray = generateNumbers();
 				isSolvable = isPuzzleSolvable(gridArray);
@@ -198,6 +201,8 @@
 	    	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				<p>This is a 15 puzzle Game.<p>
 				<p>Tap on the numbers to move them into the adjacent empty block<p>
+				<p>The objective is to get the tiles into the formation as shown in image:</p>
+				<img src="themes/images/puzzle15.png" />
 				<p>Created By: <a href="http://www.rushis.com">Rushi</a><p>
 		</div>
 		<div data-role="popup" id="gameOver" data-overlay-theme="a" class="ui-content" >
